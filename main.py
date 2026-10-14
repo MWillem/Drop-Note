@@ -43,12 +43,18 @@ def add_and_name_note(tableau_book_note,number_of_note):
 ]
 
 	#Proposer au user d'afficher l'aperçu de la note 
-	ask_preview_note = input("Voir l'aperçu Y/N ?: ")
-	ask_preview_note = minuscule_ask_preview.lower
-	y = True
-	n = False
-	if ask_preview.lower == True:
-		print(title_note, content_note)
+	ask_preview_note = input("Voir l'aperçu Y/N ?: ").lower()
+	if ask_preview_note == "y":
+		print(title_note, \n content_note)
+	else ask_preview_note == "n":
+		ask_save_note = input("Sauvegarder Y/N ?: ")
+			if ask_preview_note == "y":
+				tableau_book_note["title"].append(title_note)
+				tableau_book_note["content"].append(content_note)
+			else:
+				ask_delete_note = input("Supprimer la note Y/N ?: ")
+
+
 
 
 	return number_of_note
