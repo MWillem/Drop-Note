@@ -28,8 +28,8 @@ def print_menu_and_choice():
 	return user_choice_menu
 
 
-#Fonction under menu add note + choix user
-def print_under_menu_add_note():
+#Fonction sub menu add note + choix user
+def print_sub_menu_add_note():
 	print(" 1. Aperçu")
 	print(" 2. Sauvegarder")
 	print(" 3. Modifier")
@@ -70,7 +70,7 @@ OUTILS GESTION DE NOTE
 def add_and_name_note(user_choice_menu, tableau_book_note,number_of_note):
 
 	# Incrémenter le compteur de note
-	note_id_and_number_of_note(user_choice_menu,number_of_note)
+	number_of_note, id_note = note_id_and_number_of_note(user_choice_menu,number_of_note)
 
 	#Création de la note par le user (content,title,user)
 	content_note = input("Entrez votre texte: ")
@@ -116,6 +116,10 @@ def delete_note():
 def quit_drop_note():
 	print("Fonctionnalité non disponible")
 
+#Fonction quit
+def quit_drop_note():
+	print("Bye Bye !")
+	exit()
 
 '''
 ------------------------------------------------------------------
@@ -139,13 +143,13 @@ def run_drop_note(user_choice_menu):
 def run_gestion_add_note(user_choice_add_note):
 	match user_choice_add_note:
 		case '1':
-			choice_under_menu = preview_note()
+			choice_sub_menu = preview_note()
 		case '2':
-			choice_under_menu = save_note()
+			choice_sub_menu = save_note()
 		case '3':
-			choice_under_menu = edit_text_note()
+			choice_sub_menu = edit_text_note()
 		case '4':
-			choice_under_menu = delete_note()
+			choice_sub_menu = delete_note()
 		case _:
 			print("Choix invalide")
 
@@ -156,7 +160,8 @@ def run_gestion_add_note(user_choice_add_note):
 if __name__ == '__main__':
 	welcome_message()
 	user_choice_menu = print_menu_and_choice()
-	choice_menu = run_drop_note(user_choice_menu)
-	user_choice_add_note = print_under_menu_add_note()
-	choice_under_menu = run_gestion_add_note(user_choice_add_note)
+	while True:
+		run_drop_note(user_choice_menu)
+		user_choice_menu = print_menu_and_choice()
+		
 
