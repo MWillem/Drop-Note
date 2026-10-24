@@ -85,6 +85,9 @@ def add_and_name_note(user_choice_menu, tableau_book_note,number_of_note):
 		}
 	]
 
+  #Lancer Fonction run gestion note
+  run_gestion_add_note(user_choice_add_note)
+
 	return(title_note, content_note)
 
 
@@ -94,7 +97,7 @@ def book_notes():
 
 #Fonction preview note
 def preview_note():
-	print("Fonctionnalité non disponible")
+	print("|", title_note, "|", + "\n\n", content_note)
 
 #Fonction save note
 def save_note():
@@ -110,10 +113,6 @@ def edit_title_note():
 
 #Fonction suppression de note
 def delete_note():
-	print("Fonctionnalité non disponible")
-
-#Fonction quitter drop note
-def quit_drop_note():
 	print("Fonctionnalité non disponible")
 
 #Fonction quit
